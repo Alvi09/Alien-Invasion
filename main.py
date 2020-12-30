@@ -21,7 +21,6 @@ def run_game():
     # Make the Play Button
     play_button = Button(ai_settings, screen, "Play")
 
-
     # Create an instance to store game statistics
     stats = GameStats(ai_settings)
 

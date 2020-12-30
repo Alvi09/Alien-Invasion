@@ -22,17 +22,12 @@ class Alien(Sprite):
         # Store the alien's exact position
         self.x = float(self.rect.x)
 
-
-
     def blitme(self):
         """ Draw the alien at its current location. """
         self.screen.blit(self.image, self.rect)
 
-
-
     def check_edges(self):
         """ Return True if alien is at edge of the screen """
-
         screen_rect = self.screen.get_rect()
         if self.rect.right >= screen_rect.right:
             return True
@@ -41,7 +36,6 @@ class Alien(Sprite):
 
     def update(self):
         """ Move the alien to the right """
-
         # Track alien's position using the self.x attribute, then we update
         # the position alien's rect using value of self.x
         # Moving the alien left or right

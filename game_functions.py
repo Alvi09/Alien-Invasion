@@ -7,7 +7,6 @@ from time import sleep
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """ Respond to key presses. """
 
-
     if event.key == pygame.K_RIGHT:
         ship.moving_right = True
 
@@ -70,7 +69,8 @@ def check_play_button(ai_settings, screen, stats, sb, play_button, ship, aliens,
         # Reset the scoreboard images.
         sb.prep_score()
         sb.prep_high_score()
-        sb.prep_level()
+        sb.prep_level_image()
+        sb.prep_stage()
         sb.prep_ships()
 
         # Empty the list of aliens and bullets
@@ -153,8 +153,9 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
 
         # If entire fleet destroyed, start a new level
         stats.level += 1
-        sb.prep_level()
-        
+        sb.prep_level_image()
+
+        # sb.prep_stage() --> doing this indents the "Stage:" label not too sure why (so just didn't include it
         create_fleet(ai_settings, screen, ship, aliens)
 
 
@@ -198,7 +199,7 @@ def create_fleet(ai_settings, screen, ship, aliens):
     # Create the first row of aliens
     # Outer loop counts number of rows we want
     # Inner loop creates aliens in one row
-    for row_number in range(number_rows):
+    for row_number in range(number_rows -1):
         for alien_number in range(number_aliens_x):
             create_alien(ai_settings, screen, aliens, alien_number, row_number)
 
@@ -207,8 +208,7 @@ def get_number_rows(ai_settings, ship_height, alien_height):
 
     # Available vertical space is found by subtracting alien height from the top,
     # ship height from bottom, and 2 alien heights from bottom of the screen.
-    available_space_y = (ai_settings.screen_height -
-                         (3 * alien_height) - ship_height)
+    available_space_y = (ai_settings.screen_height - (3 * alien_height) - ship_height)
     number_rows = int(available_space_y / (2 * alien_height))
     return number_rows
 
@@ -274,7 +274,6 @@ def update_aliens(ai_settings, screen, stats, sb, ship, aliens, bullets):
         ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets)
 
     check_aliens_bottom(ai_settings, screen, stats, sb, ship, aliens, bullets)
-
 
 def check_high_score(stats, sb):
     """ Check to see if there's a new high score. """
