@@ -8,5 +8,5 @@ pip install pygame
 
 ## Project Description
 - Simple alien invasion game using python's pygame (built-in method)
-- Utilized pygame to create a moveable spaceship that shoots bullets with incrementally faster aliens each wave
+- Utilized pygame to create a moveable spaceship that shoots bullets with incrementally faster aliens each wave (aliens move right until it hits the screen border, and then left)
 - Has many features such as a play button, continuously updated score, saved highest score until exited, three lives, level display, and indicator that you were hit.
