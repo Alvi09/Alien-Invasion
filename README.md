@@ -1,5 +1,6 @@
 # Alien-Invasion
 Drag all pictures into the same folder in order to use them\
+Look at the "Issues" tab to see screenshots\
 Use package manager pip to install Pygame
 ```bash
 pip install pygame
