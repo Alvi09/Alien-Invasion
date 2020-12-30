@@ -1,4 +1,8 @@
 # Alien-Invasion
+Use package manager pip to install Pygame
+```bash
+pip install pygame
+```
 
 ## Project Description
 - Simple alien invasion game using python's pygame (built-in method)
